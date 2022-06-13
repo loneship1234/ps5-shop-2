@@ -7,7 +7,7 @@ function Poster({img,textbottom}) {
 // console.log(firstColor);
   return (
     <React.Fragment>
-      <ColorExtractor maxColors={128} getColors={colors => (console.log(colors),setFirstColor(colors[1]),setSecondColor(colors[0]))}>
+      <ColorExtractor maxColors={128} getColors={colors =>  (setFirstColor(colors[1]) || setSecondColor(colors[0]) )}>
       <img src={require('../img/'+img+'.jpg')} className='w-full h-full rounded-[30px]' alt="" />
 </ColorExtractor>
       <p style={{bottom:`${textbottom}em`}} className={'  text-white relative rotate-[270deg] right-[11em] text-[10px] uppercase'}>{img}</p>

@@ -1,15 +1,28 @@
 import React from 'react'
-import NavBar from './components/NavBar'
-import Main from './components/Main';
-import Carusel from './components/Carusel';
+// route
+import {BrowserRouter as Router,Route ,Routes} from 'react-router-dom';
+// 
+import HomePage from './Pages/HomePage';
+import NavBar from './Pages/NavBar'
+import AboutUs from './Pages/AboutUs';
+import Login from './Pages/Login';
+import SignUp from './Pages/SignUp';
+import Page404 from './Pages/Page404';
+import GameCatalog from './Pages/GameCatalog'
+
 function App() {
   return (
-    <div className='text-white'>
+   <Router>
 <NavBar/>
-<Main/>
-<p className='my-3 ml-32 font-normal tracking-wide select-none capitalize text-3xl '>discover games</p>
-<Carusel/>
-    </div>
+    <Routes>
+<Route path='/' element={<HomePage/>}/>
+<Route path='/game-Catalog' element={<GameCatalog/>}/>
+<Route path='/about-us' element={<AboutUs/>}/>
+<Route path='/login' element={<Login/>}/>
+<Route path='/sign-up' element={<SignUp/>}/>
+<Route path='*' element={<Page404/>}/>
+    </Routes>
+   </Router>
   )
 }
 
